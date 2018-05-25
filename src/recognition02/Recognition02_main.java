@@ -17,7 +17,7 @@ public class Recognition02_main {
 	public static void main(String[] args) {
 
 		VisualRecognition service = new VisualRecognition("2018-03-19");
-		service.setApiKey("e04ca9963f0798e059d0de9dc5a296c29ef447a6");
+		service.setApiKey("j16015");
 
 		InputStream imagesStream = null;
 		try {
@@ -54,24 +54,24 @@ public class Recognition02_main {
 
 
 		// colorを取得する
-		String color = node.get("images").get(0).get("classifiers").get(0).get("classes").get(1).get("color")
+		String color = node.get("images").get(0).get("classifiers").get(0).get("classes").get(1).get("class")
 				.toString();
 		System.out.println("color:" + color);
 
 		// scoreを取得する
-		double score2 = node.get("images").get(0).get("classifiers").get(0).get("classes").get(1).get("score")
+		double score2 = node.get("images").get(0).get("classifiers").get(0).get("classes").get(1).get("class")
 				.asDouble();
 		System.out.println("score:" + score2);
 
 
 
 		// colorを取得する
-		String color2 = node.get("images").get(0).get("classifiers").get(0).get("classes").get(1).get("color")
+		String color2 = node.get("images").get(0).get("classifiers").get(0).get("classes").get(2).get("class")
 				.toString();
 		System.out.println("color:" + color2);
 
 		// scoreを取得する
-		double score3 = node.get("images").get(0).get("classifiers").get(0).get("classes").get(1).get("score")
+		double score3 = node.get("images").get(0).get("classifiers").get(0).get("classes").get(2).get("score")
 				.asDouble();
 		System.out.println("score:" + score3);
 
