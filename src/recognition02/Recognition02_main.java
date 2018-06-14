@@ -14,10 +14,10 @@ import com.ibm.watson.developer_cloud.visual_recognition.v3.model.ClassifyOption
 
 public class Recognition02_main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args){
 
 		VisualRecognition service = new VisualRecognition("2018-03-19");
-		service.setApiKey("j16015");
+		service.setApiKey("");
 
 		InputStream imagesStream = null;
 		try {
@@ -43,20 +43,20 @@ public class Recognition02_main {
 		}
 
 		// nameを取得する
-		String name = node.get("images").get(0).get("classifiers").get(0).get("classes").get(0).get("class").toString();
-		System.out.println("name:" + name);
+		String class1 = node.get("images").get(0).get("classifiers").get(0).get("classes").get(0).get("class").toString();
+		System.out.println("name:" + class1);
 
 		// scoreを取得する
-		double score = node.get("images").get(0).get("classifiers").get(0).get("classes").get(0).get("score")
+		double score1 = node.get("images").get(0).get("classifiers").get(0).get("classes").get(0).get("score")
 				.asDouble();
-		System.out.println("score:" + score);
+		System.out.println("score:" + score1);
 
 
 
 		// colorを取得する
-		String color = node.get("images").get(0).get("classifiers").get(0).get("classes").get(1).get("class")
+		String class2 = node.get("images").get(0).get("classifiers").get(0).get("classes").get(1).get("class")
 				.toString();
-		System.out.println("color:" + color);
+		System.out.println("color:" + class2);
 
 		// scoreを取得する
 		double score2 = node.get("images").get(0).get("classifiers").get(0).get("classes").get(1).get("class")
@@ -66,14 +66,19 @@ public class Recognition02_main {
 
 
 		// colorを取得する
-		String color2 = node.get("images").get(0).get("classifiers").get(0).get("classes").get(2).get("class")
+		String class3 = node.get("images").get(0).get("classifiers").get(0).get("classes").get(2).get("class")
 				.toString();
-		System.out.println("color:" + color2);
+		System.out.println("color:" + class3);
 
 		// scoreを取得する
 		double score3 = node.get("images").get(0).get("classifiers").get(0).get("classes").get(2).get("score")
 				.asDouble();
 		System.out.println("score:" + score3);
+
+
+		MySQL mysql = new MySQL();
+
+		mysql.updateImage(class1,score1,class2,score2,class3,score3);
 
 	}
 
